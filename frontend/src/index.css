@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+/* @import "base";
+@import "components";
+@import " utilities"; */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  transition: background-color 0.6s ease;
+}
+
+/* Bigger, darker glowing ball moving around the section (half outside) */
+.moving-corner-blob {
+  position: absolute;
+  width: 600px;
+  height: 500px;
+  background: radial-gradient(circle, #0044ff, #8118dd);
+  opacity: 0.5;
+  filter: blur(120px);
+  border-radius: 80%;
+  z-index: 0;
+  animation: moveCorners 8s ease-in-out infinite;
+  transition: all 0.4s ease-in-out;
+}
+
+/* Move around all four corners (half outside view) */
+@keyframes moveCorners {
+  0% {
+    top: -250px;
+    left: -300px;
+  }
+  25% {
+    top: -250px;
+    left: calc(100% - 300px);
+  }
+  50% {
+    top: calc(100% - 250px);
+    left: calc(100% - 300px);
+  }
+  75% {
+    top: calc(100% - 250px);
+    left: -300px;
+  }
+  100% {
+    top: -250px;
+    left: -300px;
+  }
+}
