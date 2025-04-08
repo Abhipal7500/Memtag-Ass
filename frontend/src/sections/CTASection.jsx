@@ -33,7 +33,7 @@ export default function CTASection() {
     if (!validate()) return;
 
     try {
-      await axios.post('http://localhost:5000/api/form', formData);
+      await axios.post('https://memtagbackend.onrender.com/api/form', formData);
       setStatus("✅ Success! We'll get in touch.");
       setFormData({ name: '', email: '', role: '' });
       setErrors({});
